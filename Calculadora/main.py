@@ -1,6 +1,19 @@
 import tkinter as tk
 from tkinter import ttk
 from operaciones import *
+from PIL import Image, ImageTk
+
+def Centrar_ventana(window, width, height):
+    # Obtener el ancho y alto de la pantalla
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    
+    # Calcular la posición del centro
+    x = (screen_width // 2) - (width // 2)
+    y = (screen_height // 2) - (height // 2)
+    
+    # Establecer la geometría de la ventana
+    window.geometry(f'{width}x{height}+{x}+{y}')
 
 def Suma():
     window1 = tk.Toplevel()
@@ -17,21 +30,40 @@ def resta():
 def open_window1():
     window1 = tk.Toplevel()
     window1.title("Ventana 1")
+    #window1.geometry("300x200")  # Definir el tamaño de la ventana principal
+    Centrar_ventana(window1, 400, 300)
+    window1.resizable(True, True)  # Permitir redimensionar la ventana principal
+    
+    # Cargar la imagen de fondo
+    try:
+        bg_image = Image.open("fondo1.jpg")
+        bg_image = ImageTk.PhotoImage(bg_image)
+        canvas = tk.Canvas(window1, width=800, height=600)
+        canvas.pack(fill=tk.BOTH, expand=True)
+        canvas.create_image(0, 0, anchor=tk.NW, image=bg_image)
+    except Exception as e:
+        print(f"Error al cargar la imagen de fondo: {e}")
     
     # Crear un cuadro de texto
-    entry = ttk.Entry(window1)
-    entry.pack(padx=20, pady=10)
+    entry1 = ttk.Entry(window1)
+    entry1.pack(padx=20, pady=10)
+    
+    # Crear un cuadro de texto
+    entry2 = ttk.Entry(window1)
+    entry2.pack(padx=20, pady=10)
     
     # Función que se llama al presionar el botón
     def on_button_click():
-        text = entry.get()
-        print(f"Texto del cuadro de texto: {text}")
+        numero1 = entry1.get()
+        numero2 = entry2.get()
+        print(f"Texto del cuadro de texto: {numero1} y {numero2}")
+        label.config(text=f"Resultado: {numero1}  {numero2}")
     
     # Crear un botón
     button = ttk.Button(window1, text="Obtener texto", command=on_button_click)
     button.pack(padx=20, pady=10)
     
-    label = tk.Label(window1, text="Esta es la Ventana 1")
+    label = tk.Label(window1, text=f"Resultado:")
     label.pack(padx=20, pady=20)
 
 
