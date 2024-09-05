@@ -18,12 +18,14 @@ def Centrar_ventana(window, width, height):
 def Suma():
     window1 = tk.Toplevel()
     window1.title("Suma")
+    Centrar_ventana(window1, 400, 300)
     label = tk.Label(window1, text="Suma")
     label.pack(padx=20, pady=20)
 
 def resta():
     window2 = tk.Toplevel()
     window2.title("Resta")
+    Centrar_ventana(window2, 400, 300)
     label = tk.Label(window2, text="Resta")
     label.pack(padx=20, pady=20)
 
