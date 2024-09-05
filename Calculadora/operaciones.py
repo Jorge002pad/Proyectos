@@ -10,3 +10,6 @@ def divicion (divisor, dividendo):
 
 def multiplicacion (multiplicando, multiplicador):
     return multiplicando * multiplicador
+
+def potencia (base, potencia):
+    return base ** potencia
