@@ -23,10 +23,13 @@ def convert_image(format):
     except Exception as e:
         messagebox.showerror("Error", f"No se pudo convertir la imagen: {e}")
 
+def Cerrar_Ventana():
+    root.destroy()
+
 # Crear la ventana principal
 root = tk.Tk()
 root.title("Convertidor de Imágenes")
-root.geometry("400x200")
+root.geometry("400x250")
 root.resizable(False, False)
 
 # Crear el marco principal
@@ -50,6 +53,13 @@ formats = ["png", "jpg", "bmp", "gif"]
 for fmt in formats:
     button = ttk.Button(format_frame, text=fmt.upper(), command=lambda f=fmt: convert_image(f))
     button.pack(side=tk.LEFT, padx=10, pady=5)
+
+# Crear el marco principal
+frame = ttk.Frame(root, padding="10")
+frame.pack(fill=tk.BOTH, expand=True)
+
+close_button = ttk.Button(frame, text="Cerrar Ventana", command=Cerrar_Ventana)
+close_button.pack( padx=10, pady=10)
 
 # Iniciar el bucle principal de la aplicación
 root.mainloop()
