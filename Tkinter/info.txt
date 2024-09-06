@@ -1,0 +1,17 @@
+Explicación de los elementos:
+tk.Canvas: Actúa como un contenedor para otros widgets que pueden ser más grandes que el área visible de la ventana.
+tk.Scrollbar: Permite el desplazamiento vertical cuando el contenido del Canvas es mayor que el área visible.
+tk.Frame: Utilizado para organizar los widgets dentro del Canvas. El Frame se coloca dentro del Canvas usando canvas.create_window().
+on_frame_configure(): Función que ajusta el área de desplazamiento del Canvas cuando el Frame cambia de tamaño.
+tk.Label: Muestra texto en la ventana.
+tk.Entry: Campo para ingresar una sola línea de texto.
+tk.Button: Botones que ejecutan funciones específicas cuando se hace clic en ellos.
+tk.Checkbutton: Casilla de verificación que permite seleccionar o deseleccionar una opción.
+tk.Radiobutton: Botones de opción que permiten seleccionar una opción entre varias.
+tk.Listbox: Muestra una lista de opciones de las cuales se puede seleccionar una.
+tk.Scale: Barra deslizante para seleccionar un valor dentro de un rango.
+tk.Text: Área de texto para ingresar o mostrar texto multi-línea.
+tk.Canvas.create_line y tk.Canvas.create_rectangle: Dibuja formas en el Canvas.
+tk.Menu: Menú desplegable en la ventana principal.
+ttk.Progressbar: Muestra una barra de progreso.
+Cada widget tiene su propósito y configuración, y están organizados en el Frame dentro del Canvas para que se pueda desplazar cuando el contenido es demasiado grande para caber en la ventana visible.
