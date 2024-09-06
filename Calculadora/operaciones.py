@@ -1,6 +1,6 @@
 
 def suma (numero1, numero2):
-    return numero1 + numero2
+    return round(numero1 + numero2,2)
 
 def resta (numero1, numero2):
     return numero1 - numero2

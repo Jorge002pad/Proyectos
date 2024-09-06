@@ -19,40 +19,33 @@ def Centrar_ventana(window, width, height):
 def Suma():
     window1 = tk.Toplevel()
     window1.title("Suma")
-    window1.config(bg="#0000a0")
     Centrar_ventana(window1, 400, 300)
-    label = tk.Label(window1, text="Suma")
+    label = tk.Label(window1, text="Suma", font=("Arial", 16))
     label.pack(padx=20, pady=20)
     
     # Crear un cuadro de texto
-    entry1 = ttk.Entry(window1)
+    entry1 = ttk.Entry(window1, font=("Arial", 16))
     entry1.pack(padx=20, pady=10)
     
     # Crear un cuadro de texto
-    entry2 = ttk.Entry(window1)
+    entry2 = ttk.Entry(window1, font=("Arial", 16))
     entry2.pack(padx=20, pady=10)
     
     def Obtener_resultado():
         numero1 = entry1.get()
         numero2 = entry2.get()
-        
         try:
             # Intenta convertir la entrada a un número
-            sumita=suma(int(numero1),int(numero2))
-            print("Es un número válido.")
-            print(f'Esta es la sumita {sumita}')
-            print(f"Texto del cuadro de texto: {numero1} y {numero2}")
+            sumita=suma(float(numero1),float(numero2))
             label.config(text=f"Resultado: {sumita}")
         except ValueError:
-            print("No es un número.")
             label.config(text=f"Verificar los valores de entrada")
         
-    
     # Crear un botón
-    button = ttk.Button(window1, text="Obtener texto", command=Obtener_resultado)
+    button = ttk.Button(window1, text="Sumar", command=Obtener_resultado)
     button.pack(padx=20, pady=10)
     
-    label = tk.Label(window1, text=f"Resultado:")
+    label = tk.Label(window1, text=f"Resultado:", font=("Arial", 16))
     label.pack(padx=20, pady=20)
 
 def resta():
